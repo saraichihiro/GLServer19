@@ -1,0 +1,14 @@
+<div class="page-header">
+  <%= link_to pbl_path(get_current_project_id), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    PBL一覧へ
+  <% end %>
+
+  <%= link_to show_pbl_path(@backlog_item), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    PBL詳細へ
+  <% end %>
+  <h1>プロダクトバックログ項目の編集</h1>
+</div>
+
+<%= render 'form' %>

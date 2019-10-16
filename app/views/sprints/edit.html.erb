@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to sprints_path(@sprint.project_id), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    スプリント一覧へ
+  <% end %>
+  <%= link_to @sprint, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    スプリント詳細へ
+  <% end %>
+  <h1>スプリント編集</h1>
+</div>
+
+<%= render 'form' %>

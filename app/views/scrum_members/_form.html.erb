@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(@scrum_member, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @scrum_member.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@scrum_member.errors.count, "error") %> prohibited this scrum_member from being saved:</h4>
+
+      <ul>
+      <% @scrum_member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for(@scrum_member.user) do |uf| %>
+    <%= uf.static_control :name, label: "名前" %>
+  <% end %>
+
+  <%= f.static_control :role, label: "役割", value: ScrumMember::SCRUM_MEMBER_ROLS[@scrum_member.role] %>
+  <%= f.text_area :description, label: "コメント", :rows => '4' %>
+
+  <%= f.submit "変更する", class: "btn btn-primary" %>
+  <%= link_to 'キャンセル', project_scrum_members_path(@project), class: "btn btn-primary" %>
+  
+<% end %>

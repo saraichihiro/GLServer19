@@ -1,0 +1,28 @@
+<div class="page-header">
+  <%= link_to sprints_path(@project), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    スプリント一覧へ
+  <% end %>
+  <%= link_to edit_sprint_path(@sprint), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    スプリント編集
+  <% end %>
+  <h1>スプリント詳細</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>No:</dt>
+  <dd><%= @sprint.no %></dd>
+  <dt>開始日:</dt>
+  <dd><%= @sprint.start.to_s(:default) %></dd>
+
+  <dt>終了日:</dt>
+  <dd><%= @sprint.end.to_s(:default) %></dd>
+
+  <dt>スプリントゴール:</dt>
+  <dd><%= @sprint.description %></dd>
+
+  <dt>関連プロジェクト:</dt>
+  <dd><%= @sprint.project.name %></dd>
+
+</dl>

@@ -1,0 +1,32 @@
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card p-4 bg-info text-dark">
+        <div class="card-body">
+          <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <h2>新規アカウント作成</h2>
+
+          <%= f.label :name, "ユーザ名" %>
+          <%= f.text_field :name, class: 'form-control', :placeholder => "e1c00999" %>
+
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, class: 'form-control', :placeholder => "example@company.com" %>
+
+          <%= f.label :password, "パスワード" %>
+          <%= f.password_field :password, class: 'form-control', :placeholder => "Password" %>
+
+          <%= f.label :password_confirmation, "パスワード(確認用)" %>
+          <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "Password(Confirmation)" %>
+          <%= f.submit "アカウントを作成する", class: "btn btn-lg btn-block btn-primary" %>
+
+          <% end %>
+
+          <%= link_to "アカウント作成を中止する", root_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

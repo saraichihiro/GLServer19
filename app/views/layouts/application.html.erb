@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+
+<body>
+  <%= render 'layouts/header' %>
+
+  <div class="container-fluid">
+    <div class="row">
+      <% if get_current_project_id != nil %>
+        <%= render 'layouts/sidebar' %>
+      <% else %>
+        <div class="col-sm-3"></div>
+      <% end %>
+
+      <main  class="col p-0" id="main">
+        <div class="container remove-left-margin col-sm-10" id="koushin">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <%= msg %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="container-fluid p-0">
+          <%= yield %>
+        </div>
+
+        <%= render 'layouts/footer' %>
+
+        <div>
+        <%= debug(params) if Rails.env.development? %>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class="page-header">
+
+　　<%= link_to sbl_path(@backlog_item.sprint.id), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  SBL一覧へ
+  <% end %>
+  <%= link_to show_sbl_path(@backlog_item), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    SBL詳細へ
+  <% end %>
+  <h1>スプリントバックログ項目の編集</h1>
+</div>
+
+<%= render 'form_sbl' %>

@@ -1,0 +1,26 @@
+<div class="container form-signin">
+  <div class="text-center">
+    <%= form_for(:session, url: login_path) do |f| %>
+        <h1 class="h3 font-weight-normal text-white">ログインしてください</h1>
+        <%= f.label :email, class: "sr-only" %>
+        <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %>
+
+        <%= f.label :password, class: "sr-only"  %>
+        <%= f.password_field :password, class: 'form-control mt-2', placeholder: "Password" %>
+
+        <div class="checkbox text-left">
+          <%= f.label :remember_me, class: "inline w-100 ml-2 mt-2" do %>
+            <%= f.check_box :remember_me %>
+            <span class="text-white">Remember me on this computer</span>
+          <% end %>
+        </div>
+
+        <!-- 
+        %= link_to t('menu.login'), signup_path, class: "btn btn-lg btn-primary btn-block" %>
+        -->
+
+        <%= f.submit t('menu.login'), class: "btn btn-lg btn-primary btn-block" %>
+        <%= link_to t('menu.signup'), new_user_path, class: "btn btn-lg btn-primary btn-block" %>
+      <% end %>
+  </div>
+</div>

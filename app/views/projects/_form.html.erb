@@ -1,0 +1,29 @@
+<%= bootstrap_form_for(@project, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @project.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, label: "プロジェクト名" %>
+
+  <%= f.date_field :start, label: "開始日" %>
+ 
+  <%= f.date_field :end, label: "終了日" %>
+
+  <%= f.number_field :length, label: "スプリント長" %>
+
+  <%= f.text_area :description, label: "概要", :rows => '3' %>
+
+  <%= f.submit "変更する", class: "btn btn-primary" %>
+
+  <%= link_to 'キャンセル', projects_path, class: "btn btn-primary"  %>
+
+<% end %>

@@ -1,0 +1,31 @@
+<div class="navbar navbar-expand shadow-sm">
+  <ul class="nav">
+    <li class="navbar-text"><b>メンバー情報</b></li>
+  </ul>
+  <ul class="nav ml-auto">
+    <li class="nav-item">
+      <%= link_to scrum_members_path(@project), class: 'btn btn-default' do %>
+        <%= fa_icon("list") %>
+        メンバー一覧
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3">
+  <table class="table table-striped table-borderless">
+  <tr>
+  <th width="30%">名前</th>
+  <td width="70%"><%= @scrum_member.user.name %></td>
+  </tr>
+  <tr>
+  <th>役割</th>
+  <td><%= ScrumMember::SCRUM_MEMBER_ROLS[@scrum_member.role] %></td>
+  </tr>
+  <tr>
+  <th>コメント</th>
+  <td><%= @scrum_member.description %></td>
+  </tr>
+  <tr>
+  </table>
+</div>

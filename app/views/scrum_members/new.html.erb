@@ -1,0 +1,17 @@
+<div class="navbar navbar-expand shadow-sm">
+  <ul class="nav">
+    <li class="navbar-text"><b>メンバーの追加</b></li>
+  </ul>
+  <ul class="nav ml-auto">
+    <li class="nav-item">
+      <%= link_to scrum_members_path(@project), class: 'btn btn-default' do %>
+        <%= fa_icon("list") %>
+        メンバー一覧
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="container  mt-3">
+  <%= render 'select' %>
+</div>

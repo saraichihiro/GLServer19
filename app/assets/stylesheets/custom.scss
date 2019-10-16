@@ -1,0 +1,248 @@
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+.remove-all-margin {
+  margin:0 ! important;
+}
+
+.remove-all-padding {
+  padding:0 ! important;
+}
+
+.remove-all-margin-padding {
+  margin:0 ! important;
+  padding:0 ! important;
+}
+
+/* universal */
+/* application.css.sccs の padding-top の値と同じにする */
+/* body {
+  padding-top: 50rem;
+} */
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10rem;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2rem;
+  margin-bottom: 30rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1rem;
+  margin-bottom: 30rem;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10rem;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1rem;
+  /* padding-top: 9rem; */
+  font-weight: bold;
+  text-align: center;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  margin: 0rem;
+}
+
+.jumbotron {
+  margin-top: 0rem;
+  // 背景画像を暗くする
+  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05) ), url(study-862994_1920.jpg);
+  background-size: cover;
+  // 背景画像の位置を決める
+  background-position: 50% 50%;
+  height: 500rem;
+}
+
+body > .container-fluid {
+  padding-left:  0rem;
+  padding-right: 0rem;
+}
+
+.container-fluid .jumbotron {
+  border-radius: 0rem;
+}
+
+.jumbotron .container .row {
+  margin-top: 120rem;
+  color: #fff;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45rem;
+  padding-top: 5rem;
+  border-top: 1rem solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15rem;
+    }
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45rem;
+  @include box_sizing;
+}
+
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20rem;
+  }
+  section {
+    padding: 10rem 0;
+    margin-top: 20rem;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3rem;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1rem;
+      margin-bottom: 3rem;
+      margin-top: 0rem;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10rem;
+}
+
+.gravatar_edit {
+  margin-top: 15rem;
+}
+
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1rem solid #bbb;
+  width: 100%;
+  margin-bottom: 15rem;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30rem 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: -10rem;
+  margin-bottom: 10rem;
+  span {
+    margin-left: 20rem;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10rem 0;
+    border-bottom: 1rem solid $gray-lighter;
+  }
+}

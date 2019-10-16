@@ -1,0 +1,47 @@
+<div class="navbar navbar-expand shadow-sm">
+  <ul class="nav">
+    <li class="navbar-text"><b>チームメンバー</b></li>
+  </ul>
+  <ul class="nav ml-auto">
+    <li class="nav-item">
+      <%= link_to new_project_scrum_members_path(@project), class: 'nav-link' do %>
+        <%= fa_icon("plus") %>
+        メンバーの追加
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="container table-responsive mt-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th width="20%" >名前</th>
+        <th width="15%" >役割</th>
+        <th width="15%" >参加日時</th>
+        <th width="45%" >コメント</th>
+        <th width="5%" ></th>
+        <th width="5%" ></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @scrum_members) do |scrum_member| %>
+        <td><%= scrum_member.name %></td>
+        <td><%= ScrumMember::SCRUM_MEMBER_ROLS[scrum_member.role] %></td>
+        <td><%= print_date(scrum_member.created_at) %></td>
+        <td><%= scrum_member.description %></td>
+        <td>
+          <%= link_to edit_scrum_member_path(scrum_member) do %>
+            <%= fa_icon("edit") %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to scrum_member, method: :delete, data: { confirm: 'メンバーを退会させますか？' } do %>
+            <%= fa_icon("trash") %>
+          <% end %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

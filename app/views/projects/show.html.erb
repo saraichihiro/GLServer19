@@ -1,0 +1,52 @@
+<div class="navbar navbar-expand shadow-sm">
+  <ul class="nav">
+    <li class="navbar-text"><b>プロジェクト詳細</b></li>
+  </ul>
+  <ul class="nav ml-auto">
+    <li class="nav-item">
+      <%= link_to edit_project_path(@project),  class: 'nav-link' do %>
+        <%= fa_icon("edit") %>
+        編集
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to  @project, :method => :delete, data: { confirm: '本当に削除しますか?' }, class: 'nav-link' do %>
+      <%= fa_icon("trash") %>
+      削除
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3">
+  <table class="table table-striped table-borderless">
+<tr>
+  <th width="30%">プロジェクト名</th>
+  <td width="70%"><%= @project.name %></td>
+</tr>
+<tr>
+  <th>開始日</th>
+  <td><%= print_date(@project.start) %></td>
+</tr>
+<tr>
+  <th>終了日</th>
+  <td><%= print_date(@project.end) %></td>
+</tr>
+<tr>
+  <th>スプリント長</th>
+  <td><%= @project.length %></td>
+</tr>
+<tr>
+  <th>プロジェクト概要</th>
+  <td><%= @project.description %></td>
+</tr>
+<tr>
+  <th>進捗状態</th>
+  <% if @project.start < Time.now() && @project.end > Time.now()%>
+  <td><%= "通常" %></td>
+  <% else %>
+  <td style="color:red"><%= "遅延" %></td>
+  <% end %>
+  </tr>
+  </table>
+</div>

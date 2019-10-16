@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>スプリントバックログ</h1>
+  <h3>第<%= @sprint.no %>スプリント</h3>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th width="5%" ></th>
+        <th width="5%" >No</th>
+        <th width="50%" >内容</th>
+        <th width="7%" >状態</th>
+        <th width="14%" >開始日時</th>
+        <th width="14%" >終了日時</th> 
+        <th width="5%" ></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @backlog_items) do |backlog_item| %>
+
+      <% if backlog_item.project_id == get_current_project_id && backlog_item.itemType == 0 && backlog_item.sprint == @sprint %>
+
+      <td class="danger"><%= BacklogItem::BACKLOG_ITEM_TYPE[backlog_item.itemType] %></td>
+      <td class="danger"><%= backlog_item.no %></td>
+      <td class="danger"><%= backlog_item.description %></td>
+      <td class="danger"><%= BacklogItem::BACKLOG_ITEM_ROLS[backlog_item.state] %></td>
+      <td class="danger"><%= backlog_item.started_at %></td>
+      <td class="danger"><%= backlog_item.ended_at %></td>
+      <td class="danger"><%= link_to '', show_pbl_path(backlog_item), class: 'btn btn-primary btn-lg fa fa-search fa-lg' %></td>
+
+
+      <% get_sbl(backlog_item) %>
+
+      <%= content_tag_for(:tr, @backlog_sbl) do |sbl| %>
+      <td class="success"><%= BacklogItem::BACKLOG_ITEM_TYPE[sbl.itemType] %></td>
+      <td class="success"><%= sbl.no %></td>
+      <td class="success"><%= sbl.description %></td>
+      <td class="success"><%= BacklogItem::BACKLOG_ITEM_ROLS[sbl.state] %></td>
+      <td class="success"><%= sbl.started_at %></td>
+      <td class="success"><%= sbl.ended_at %></td>
+      <td class="success"><%= link_to '', show_sbl_path(sbl), class: 'btn btn-primary btn-lg fa fa-search fa-lg' %></td>
+      <% end %>
+
+      <% end %>
+      
+      <% end %>
+    </tbody>
+  </table>
+</div>

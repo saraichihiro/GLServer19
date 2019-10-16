@@ -1,0 +1,35 @@
+<% provide(:title, "Edit user") %>
+
+
+
+<% console %>
+<div class="container-fulid pt-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card p-4 bg-info text-dark">
+        <div class="card-body">
+          <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <h2>ユーザ情報変更</h2>
+
+          <%= f.label :name, "ユーザ名" %>
+          <%= f.text_field :name, class: 'form-control'%>
+
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, class: 'form-control' %>
+
+          <%= f.label :description, "自己紹介" %>
+          <%= f.text_area :description, class: 'form-control', :cols => '40', :rows => '4' %>
+
+          <%= f.submit "変更を保存する", class: "btn btn-lg btn-block btn-primary" %>
+
+          <% end %>
+          <%= link_to "変更を行わずに終了する", current_user %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

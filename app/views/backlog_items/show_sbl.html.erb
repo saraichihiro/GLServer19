@@ -1,0 +1,68 @@
+<div class="page-header">
+
+  <%= link_to sbl_path(@backlog_item.sprint.id), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  SBL一覧へ
+  <% end %>
+  <%= link_to edit_sbl_path(@backlog_item), class: 'btn btn-primary' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  SBL編集
+  <% end %>
+  <%= link_to show_pbl_path(@backlog_item.backlog_item_id), class: 'btn btn-primary' do %>
+  PBL詳細へ
+  <% end %>
+
+  <h1>スプリントバックログ項目の詳細</h1>
+</div>
+
+<dl class="dl-horizontal">
+
+  <dt>項目番号:</dt>
+  <dd><%= @backlog_item.no %></dd>
+
+  <dt>スプリント:</dt>
+  <% if @backlog_item.sprint == nil %> 
+  <dd>未選択</dd>
+  <% else %>
+  <dd>第<%= @backlog_item.sprint.no %>スプリント</dd>
+  <% end %>
+
+  <dt>担当者:</dt>
+  <% if @assign == nil %> 
+  <dd>未選択</dd>
+  <% else %>
+  <dd><%= @assign.name %></dd>
+  <% end %>
+  
+  <dt>開発タイプ:</dt>
+  <dd><%= @backlog_item.dev_type %></dd>
+
+  <dt>状態:</dt>
+  <dd><%= BacklogItem::BACKLOG_ITEM_ROLS[@backlog_item.state] %></dd>
+
+  <dt>見積り:</dt>
+  <dd><%= @backlog_item.estimate %></dd>
+
+  <dt>開始日:</dt>
+  <dd><%= @backlog_item.started_at %></dd>
+
+  <dt>終了日:</dt>
+  <dd><%= @backlog_item.ended_at %></dd>
+
+  <dt>内容:</dt>
+  <dd><%= @backlog_item.description %></dd>
+
+  <dt>備考:</dt>
+  <dd><%= @backlog_item.supplement %></dd>
+
+  <% if @backlog_item.backlog_item_id != nil %>
+  <dt>関連PBL:</dt>
+  <dd><%= @pbl.description  %></dd>
+
+  <dt>作成者:</dt>
+  <dd><%= @author.name %></dd>
+
+  <dt>作成日:</dt>
+  <dd><%= @backlog_item.created_at.to_s(:published_on) %></dd>
+  <% end %>
+</dl>
