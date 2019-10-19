@@ -2,6 +2,7 @@
 
 ## 変更履歴
 1. 19/10/16 初版の作成。projectとscrum_memberのみ実装を終了している。
+1. 19/10/18 ubuntu でのネットワークの設定法と GLServer の起動法を追加。
 
 ## システム要件
 
@@ -38,7 +39,7 @@ bundle を実行する。puma は development, test 環境では不要。
 % bundle exec rake routes > routes.txt
 ```
 
-## 3. GLServer の実行
+## 3. GLServer を localhost で実行
 
 次を実行すると、GLServer を localhost:3000 でアクセスできる。なお、Admin のメールアドレスとパスワードは example@railstutorial.org / foobar である。
 
@@ -46,7 +47,44 @@ bundle を実行する。puma は development, test 環境では不要。
 % bundle exec rails s
 ```
 
-他のマシンからアクセスできるようにするには、server.bat に書かれた IP アドレスとポート番号を変更して実行する。
+## 4. GLServer を他のマシンからアクセスできるようにする
+
+### 4.1 Windows10 の場合
+
+DHCP を使用している場合は、次のページを参考にして、マシンの IP アドレスを設定する。設定が終わったら再起動する。
+
+https://www.buffalo.jp/support/faq/detail/15257.html
+
+他のマシンからアクセスできるようにするには、server.bat に書かれた <IP アドレス> と <ポート番号> を変更した後、次を実行する。
+
+```bash
+> server.bat
+```
+
+### 4.2 ubuntu の場合
+
+#### IP アドレスを設定する
+
+DHCP を使用している場合は、次のページを参考にして、マシンの IP アドレスを設定する。設定が終わったら再起動する。
+
+https://linuxfan.info/ubuntu-1804-desktop-static-ip-address
+
+次のページを参考にして、IP アドレスが重複していないことを確認する。
+
+http://tech.clickyourstyle.com/articles/161
+
+
+bundle を sudo で実行するために、次を実行する。
+
+```text
+% git clone https://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
+```
+
+server.sh に書かれた <IP アドレス> と <ポート番号> を変更した後、次を実行する。
+
+```bash
+% bash server.sh
+```
 
 ## 参考ページ
 
