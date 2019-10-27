@@ -6,7 +6,7 @@
  2019/10/23 初版の作成
  2019/10/25 次の誤りの修正、コマンドの出力の追加
  1. alias のバッククォートの誤りを修正
-
+ 2019/10/27 FAST-forward マージを禁止する。
 
 ## 1. xclip のインストール
 
@@ -102,6 +102,12 @@ GitHub に登録したユーザー名とメールアドレスを設定する。
 ```bash
 % git config --global user.name "ユーザー名"
 % git config --global user.email メールアドレス
+```
+
+FAST-forward マージを禁止する。
+
+```bash
+% git config --global --add merge.ff false
 ```
 
 ## 5. 公開鍵が登録されたか確認する
