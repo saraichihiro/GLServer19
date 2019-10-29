@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  has_one :alpha_framework
 
   has_many :sprints
 
