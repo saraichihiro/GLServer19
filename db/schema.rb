@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191029054921) do
+ActiveRecord::Schema.define(version: 20191029061214) do
 
   create_table "alpha_alpha_defs", force: :cascade do |t|
     t.integer "dseq"
@@ -22,11 +22,39 @@ ActiveRecord::Schema.define(version: 20191029054921) do
     t.index ["alpha_framework_def_id"], name: "index_alpha_alpha_defs_on_alpha_framework_def_id"
   end
 
+  create_table "alpha_alphas", force: :cascade do |t|
+    t.integer "alpha_framework_id"
+    t.integer "alpha_alpha_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_alpha_def_id"], name: "index_alpha_alphas_on_alpha_alpha_def_id"
+    t.index ["alpha_framework_id"], name: "index_alpha_alphas_on_alpha_framework_id"
+  end
+
+  create_table "alpha_evidences", force: :cascade do |t|
+    t.string "document"
+    t.integer "scrum_member_id"
+    t.integer "alpha_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_item_id"], name: "index_alpha_evidences_on_alpha_item_id"
+    t.index ["scrum_member_id"], name: "index_alpha_evidences_on_scrum_member_id"
+  end
+
   create_table "alpha_framework_defs", force: :cascade do |t|
     t.string "dname"
     t.text "ddescription"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "alpha_frameworks", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "alpha_framework_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_framework_def_id"], name: "index_alpha_frameworks_on_alpha_framework_def_id"
+    t.index ["project_id"], name: "index_alpha_frameworks_on_project_id"
   end
 
   create_table "alpha_item_defs", force: :cascade do |t|
@@ -38,6 +66,17 @@ ActiveRecord::Schema.define(version: 20191029054921) do
     t.index ["alpha_state_def_id"], name: "index_alpha_item_defs_on_alpha_state_def_id"
   end
 
+  create_table "alpha_items", force: :cascade do |t|
+    t.boolean "completed"
+    t.datetime "completed_at"
+    t.integer "alpha_state_id"
+    t.integer "alpha_item_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_item_def_id"], name: "index_alpha_items_on_alpha_item_def_id"
+    t.index ["alpha_state_id"], name: "index_alpha_items_on_alpha_state_id"
+  end
+
   create_table "alpha_state_defs", force: :cascade do |t|
     t.integer "dseq"
     t.string "dname"
@@ -46,6 +85,18 @@ ActiveRecord::Schema.define(version: 20191029054921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alpha_alpha_def_id"], name: "index_alpha_state_defs_on_alpha_alpha_def_id"
+  end
+
+  create_table "alpha_states", force: :cascade do |t|
+    t.boolean "completed"
+    t.integer "completed_items"
+    t.datetime "completed_at"
+    t.integer "alpha_alpha_id"
+    t.integer "alpha_state_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_alpha_id"], name: "index_alpha_states_on_alpha_alpha_id"
+    t.index ["alpha_state_def_id"], name: "index_alpha_states_on_alpha_state_def_id"
   end
 
   create_table "backlog_items", force: :cascade do |t|

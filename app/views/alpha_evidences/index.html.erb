@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_alpha_evidence_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Alpha evidence
+  <% end %>
+  <h1>Listing alpha_evidences</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Document</th>
+            <th>Scrum member</th>
+            <th>Alpha item</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @alpha_evidences) do |alpha_evidence| %>
+            <td><%= alpha_evidence.document %></td>
+            <td><%= alpha_evidence.scrum_member %></td>
+            <td><%= alpha_evidence.alpha_item %></td>
+            <td><%= link_to 'Show', alpha_evidence %></td>
+        <td><%= link_to 'Edit', edit_alpha_evidence_path(alpha_evidence) %></td>
+        <td><%= link_to 'Destroy', alpha_evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

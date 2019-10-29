@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get  '/users/:id/editpassword(.:format)'     => 'users#edit_password',  :as => 'edit_password'
 
-  resources :projects
+  # resources :projects
   
   resources :sprints, :only => [:show, :edit, :update, :destroy]
 
@@ -49,6 +49,18 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :projects, shallow: true do
+    resource :alpha_framework, shallow: true do
+      resources :alpha_alphas, shallow: true, except: [ :destroy ] do
+        resources :alpha_states, shallow: true, except: [ :destroy ] do
+          resources :alpha_items, shallow: true, except: [ :destroy ] do
+            resources :alpha_evidences, shallow: true
+          end
+        end
+      end
+    end
+  end
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

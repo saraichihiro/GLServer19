@@ -1,0 +1,37 @@
+<%= form_with(model: alpha_item, local: true) do |form| %>
+  <% if alpha_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alpha_item.errors.count, "error") %> prohibited this alpha_item from being saved:</h2>
+
+      <ul>
+      <% alpha_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.check_box :completed, id: :alpha_item_completed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed_at %>
+    <%= form.datetime_select :completed_at, id: :alpha_item_completed_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alpha_state_id %>
+    <%= form.text_field :alpha_state_id, id: :alpha_item_alpha_state_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alpha_item_def_id %>
+    <%= form.text_field :alpha_item_def_id, id: :alpha_item_alpha_item_def_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: alpha_framework, local: true) do |form| %>
+  <% if alpha_framework.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alpha_framework.errors.count, "error") %> prohibited this alpha_framework from being saved:</h2>
+
+      <ul>
+      <% alpha_framework.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :project_id %>
+    <%= form.text_field :project_id, id: :alpha_framework_project_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alpha_framework_def_id %>
+    <%= form.text_field :alpha_framework_def_id, id: :alpha_framework_alpha_framework_def_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

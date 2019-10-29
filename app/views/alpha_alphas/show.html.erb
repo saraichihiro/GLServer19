@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to alpha_alphas_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_alpha_alpha_path(@alpha_alpha), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show alpha_alpha</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Alpha framework:</dt>
+  <dd><%= @alpha_alpha.alpha_framework %></dd>
+
+  <dt>Alpha alpha def:</dt>
+  <dd><%= @alpha_alpha.alpha_alpha_def %></dd>
+
+</dl>
