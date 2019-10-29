@@ -1,0 +1,32 @@
+<%= form_with(model: alpha_item_def, local: true) do |form| %>
+  <% if alpha_item_def.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alpha_item_def.errors.count, "error") %> prohibited this alpha_item_def from being saved:</h2>
+
+      <ul>
+      <% alpha_item_def.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dseq %>
+    <%= form.number_field :dseq, id: :alpha_item_def_dseq %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ddescription %>
+    <%= form.text_area :ddescription, id: :alpha_item_def_ddescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alpha_state_def_id %>
+    <%= form.text_field :alpha_state_def_id, id: :alpha_item_def_alpha_state_def_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

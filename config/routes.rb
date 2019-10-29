@@ -41,6 +41,14 @@ Rails.application.routes.draw do
 
   post '/projects/:project_id/backlog_items(.:format)'  => 'backlog_items#create', :as => 'project_backlog_items'
 
+  resources :alpha_framework_defs, shallow: true do
+    resources :alpha_alpha_defs, shallow: true do
+      resources :alpha_state_defs, shallow: true do
+        resources :alpha_item_defs, shallow: true
+      end
+    end
+  end
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

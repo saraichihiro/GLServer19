@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dseq: 1
+  ddescription: MyText
+  alpha_state_def: one
+
+two:
+  dseq: 1
+  ddescription: MyText
+  alpha_state_def: two

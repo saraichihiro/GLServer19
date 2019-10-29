@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_alpha_item_def_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Alpha item def
+  <% end %>
+  <h1>Listing alpha_item_defs</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Dseq</th>
+            <th>Ddescription</th>
+            <th>Alpha state def</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @alpha_item_defs) do |alpha_item_def| %>
+            <td><%= alpha_item_def.dseq %></td>
+            <td><%= alpha_item_def.ddescription %></td>
+            <td><%= alpha_item_def.alpha_state_def %></td>
+            <td><%= link_to 'Show', alpha_item_def %></td>
+        <td><%= link_to 'Edit', edit_alpha_item_def_path(alpha_item_def) %></td>
+        <td><%= link_to 'Destroy', alpha_item_def, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

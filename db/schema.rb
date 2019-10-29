@@ -10,7 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110092946) do
+ActiveRecord::Schema.define(version: 20191029054921) do
+
+  create_table "alpha_alpha_defs", force: :cascade do |t|
+    t.integer "dseq"
+    t.string "dname"
+    t.text "ddescription"
+    t.integer "alpha_framework_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_framework_def_id"], name: "index_alpha_alpha_defs_on_alpha_framework_def_id"
+  end
+
+  create_table "alpha_framework_defs", force: :cascade do |t|
+    t.string "dname"
+    t.text "ddescription"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "alpha_item_defs", force: :cascade do |t|
+    t.integer "dseq"
+    t.text "ddescription"
+    t.integer "alpha_state_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_state_def_id"], name: "index_alpha_item_defs_on_alpha_state_def_id"
+  end
+
+  create_table "alpha_state_defs", force: :cascade do |t|
+    t.integer "dseq"
+    t.string "dname"
+    t.text "ddescription"
+    t.integer "alpha_alpha_def_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpha_alpha_def_id"], name: "index_alpha_state_defs_on_alpha_alpha_def_id"
+  end
 
   create_table "backlog_items", force: :cascade do |t|
     t.integer "itemType"
