@@ -31,3 +31,22 @@
 # config/routes.rb を修正する。
 
 % bundle exec rails routes > routes.txt
+
+# データベースへ初期データを投入する
+
+% bundle exec rails db:drop:_unsafe
+
+% bundle exec rails db:migrate RAILS_ENV=development
+
+% bundle exec rails db:seed RAILS_ENV=development
+
+# データベースを検索し、データが投入されているか確認する。
+
+% bundle exec rails console
+
+[1] pry(main)> User.all
+[2] pry(main)> exit
+
+% 
+
+

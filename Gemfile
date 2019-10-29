@@ -60,6 +60,11 @@ gem 'coffee-script-source','1.8.0'
 #gem 'autoprefixer-rails'
 #gem 'bootswatch-rails'
 
+gem 'seed-fu', '~> 2.3'
+
+# エラーなどを日本語で表示する
+gem 'rails-i18n', '~> 5.1'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'sqlite3',	'1.3.13'
