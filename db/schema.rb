@@ -33,12 +33,10 @@ ActiveRecord::Schema.define(version: 20191029061214) do
 
   create_table "alpha_evidences", force: :cascade do |t|
     t.string "document"
-    t.integer "scrum_member_id"
     t.integer "alpha_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alpha_item_id"], name: "index_alpha_evidences_on_alpha_item_id"
-    t.index ["scrum_member_id"], name: "index_alpha_evidences_on_scrum_member_id"
   end
 
   create_table "alpha_framework_defs", force: :cascade do |t|
@@ -67,7 +65,7 @@ ActiveRecord::Schema.define(version: 20191029061214) do
   end
 
   create_table "alpha_items", force: :cascade do |t|
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "completed_at"
     t.integer "alpha_state_id"
     t.integer "alpha_item_def_id"
@@ -88,8 +86,8 @@ ActiveRecord::Schema.define(version: 20191029061214) do
   end
 
   create_table "alpha_states", force: :cascade do |t|
-    t.boolean "completed"
-    t.integer "completed_items"
+    t.boolean "completed", default: false
+    t.integer "completed_items", default: 0
     t.datetime "completed_at"
     t.integer "alpha_alpha_id"
     t.integer "alpha_state_def_id"

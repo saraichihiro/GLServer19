@@ -26,7 +26,6 @@ class Project < ApplicationRecord
   end
     
   def build_framework(name)
-    byebug
     self.alpha_framework = AlphaFramework.build_framework(name, self)
   end
 end

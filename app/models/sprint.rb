@@ -4,9 +4,7 @@ class Sprint < ApplicationRecord
 
   attr_accessor :name
 
-
-
-	validates :start, presence: true
+  validates :start, presence: true
 	validates :end, presence: true
 	validates :project_id, presence: true
 	validate :date_check

@@ -7,7 +7,6 @@ class AlphaAlphasController < ApplicationController
     #@alpha_alphas = AlphaAlpha.all
     @project = Project.find(params[:project_id])
     @alpha_alphas = @project.alpha_framework.alpha_alphas
-    byebug
   end
 
   # GET /alpha_alphas/1

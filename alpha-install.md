@@ -42,7 +42,7 @@
 
 % bundle exec rails s
 
-# ラーニングアルファのデータベースを検索し、データが投入されているか確認する。
+# データベースを検索し、データが投入されているか確認する。
 
 % bundle exec rails console
 

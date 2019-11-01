@@ -10,12 +10,11 @@ class AlphaFramework < ApplicationRecord
 
   def self.build_framework(name, project)
     framework = AlphaFramework.create
-    byebug
     framework_def = AlphaFrameworkDef.find_by(dname: name)
     framework.alpha_framework_def = framework_def
     framework.project = project
+    framework.save
     
-    byebug
     alpha_defs = framework_def.alpha_alpha_defs
     if alpha_defs then
       alpha_defs.each do |alpha_def|

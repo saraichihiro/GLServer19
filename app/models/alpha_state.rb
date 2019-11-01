@@ -8,6 +8,7 @@ class AlphaState < ApplicationRecord
     state = AlphaState.create
     state.alpha_alpha = alpha_alpha
     state.alpha_state_def = alpha_state_def
+    state.save
     
     item_defs = alpha_state_def.alpha_item_defs
     if item_defs then
@@ -17,5 +18,17 @@ class AlphaState < ApplicationRecord
     end
 
     return state
+  end
+
+  def dseq
+    self.alpha_state_def.dseq
+  end
+
+  def dname
+    self.alpha_state_def.dname
+  end
+  
+  def ddescription
+    self.alpha_state_def.ddescription
   end
 end

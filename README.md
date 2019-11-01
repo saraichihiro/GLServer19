@@ -28,18 +28,26 @@ ruby 2.4.6p354 (2019-04-01 revision 67394) [x64-mingw32]
 % gem install bundler -v 1.17.3
 ```
 
-## 2. gem のインストールなど
+## 2. gem のインストール
 
 bundle を実行する。puma は development, test 環境では不要。
 
 ```bash
 % bundle install --without production
-% bundle exec rake db:migrate
-% bundle exec rake db:seed
+```
+
+## 3. アプリケーションの準備p
+
+データベースのスキーマやモデルが変わった場合は、以降を実行する。
+
+```bash
+% bundle exec rails db:drop:_unsafe
+% bundle exec rake db:migrate RAILS_ENV=development
+% bundle exec rake db:seed  RAILS_ENV=development
 % bundle exec rake routes > routes.txt
 ```
 
-## 3. GLServer を localhost で実行
+## 4. GLServer を localhost で実行
 
 次を実行すると、GLServer を localhost:3000 でアクセスできる。なお、Admin のメールアドレスとパスワードは example@railstutorial.org / foobar である。
 
@@ -47,9 +55,9 @@ bundle を実行する。puma は development, test 環境では不要。
 % bundle exec rails s
 ```
 
-## 4. GLServer を他のマシンからアクセスできるようにする
+## 5. GLServer を他のマシンからアクセスできるようにする
 
-### 4.1 Windows10 の場合
+### 5.1 Windows10 の場合
 
 DHCP を使用している場合は、次のページを参考にして、マシンの IP アドレスを設定する。設定が終わったら再起動する。
 
@@ -61,7 +69,7 @@ https://www.buffalo.jp/support/faq/detail/15257.html
 > server.bat
 ```
 
-### 4.2 ubuntu の場合
+### 5.2 ubuntu の場合
 
 #### IP アドレスを設定する
 
