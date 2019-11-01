@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    set_current_project_id(@project)
+    set_current_project(@project)
   end
 
   # GET /projects/new
@@ -33,6 +33,9 @@ class ProjectsController < ApplicationController
         @smaster = ScrumMember.new(user_id: current_user.id, project_id: @project.id, role: 1)
         @smaster.save
 
+        set_current_project(@project)
+        @project.build_framework("ラーニングアルファ")
+        
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else

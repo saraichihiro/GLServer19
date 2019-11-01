@@ -4,7 +4,9 @@ class AlphaAlphaDefsController < ApplicationController
   # GET /alpha_alpha_defs
   # GET /alpha_alpha_defs.json
   def index
-    @alpha_alpha_defs = AlphaAlphaDef.all
+    #@alpha_alpha_defs = AlphaAlphaDef.all
+    @framework_def = AlphaFrameworkDef.find(params[:alpha_framework_def_id])
+    @alpha_alpha_defs = @framework_def.alpha_alpha_defs
   end
 
   # GET /alpha_alpha_defs/1

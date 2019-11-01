@@ -4,7 +4,10 @@ class AlphaItemDefsController < ApplicationController
   # GET /alpha_item_defs
   # GET /alpha_item_defs.json
   def index
-    @alpha_item_defs = AlphaItemDef.all
+    #@alpha_item_defs = AlphaItemDef.all
+
+    @alpha_state_def = AlphaStateDef.find(params[:alpha_state_def_id])
+    @alpha_item_defs = @alpha_state_def.alpha_item_defs
   end
 
   # GET /alpha_item_defs/1

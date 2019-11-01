@@ -20,7 +20,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @alpha_framework_defs) do |alpha_framework_def| %>
-            <td><%= alpha_framework_def.dname %></td>
+            <td><%= link_to alpha_framework_def.dname,  alpha_framework_def_alpha_alpha_defs_path(alpha_framework_def) %></td>
             <td><%= alpha_framework_def.ddescription %></td>
             <td><%= link_to 'Show', alpha_framework_def %></td>
         <td><%= link_to 'Edit', edit_alpha_framework_def_path(alpha_framework_def) %></td>

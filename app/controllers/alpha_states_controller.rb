@@ -4,7 +4,10 @@ class AlphaStatesController < ApplicationController
   # GET /alpha_states
   # GET /alpha_states.json
   def index
-    @alpha_states = AlphaState.all
+    #@alpha_states = AlphaState.all
+
+    @alpha_alpha_def = AlphaAlphaDef.find(params[:alpha_alpha_def_id])
+    @alpha_state_defs = @alpha_alpha_def.alpha_state_defs
   end
 
   # GET /alpha_states/1

@@ -1,7 +1,7 @@
 <div class="page-header">
-  <%= link_to new_alpha_state_def_path, class: 'btn btn-primary' do %>
+  <%= link_to new_alpha_alpha_def_alpha_state_def_path(@alpha_alpha_def), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Alpha state def
+    New Alpha State def
   <% end %>
   <h1>Listing alpha_state_defs</h1>
 </div>
@@ -13,7 +13,6 @@
             <th>Dseq</th>
             <th>Dname</th>
             <th>Ddescription</th>
-            <th>Alpha alpha def</th>
             <th></th>
         <th></th>
         <th></th>
@@ -23,9 +22,8 @@
     <tbody>
       <%= content_tag_for(:tr, @alpha_state_defs) do |alpha_state_def| %>
             <td><%= alpha_state_def.dseq %></td>
-            <td><%= alpha_state_def.dname %></td>
+            <td><%= link_to alpha_state_def.dname,  alpha_state_def_alpha_item_defs_path(alpha_state_def) %></td>
             <td><%= alpha_state_def.ddescription %></td>
-            <td><%= alpha_state_def.alpha_alpha_def %></td>
             <td><%= link_to 'Show', alpha_state_def %></td>
         <td><%= link_to 'Edit', edit_alpha_state_def_path(alpha_state_def) %></td>
         <td><%= link_to 'Destroy', alpha_state_def, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,7 +4,10 @@ class AlphaAlphasController < ApplicationController
   # GET /alpha_alphas
   # GET /alpha_alphas.json
   def index
-    @alpha_alphas = AlphaAlpha.all
+    #@alpha_alphas = AlphaAlpha.all
+    @project = Project.find(params[:project_id])
+    @alpha_alphas = @project.alpha_framework.alpha_alphas
+    byebug
   end
 
   # GET /alpha_alphas/1
@@ -65,6 +68,7 @@ class AlphaAlphasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_alpha_alpha
       @alpha_alpha = AlphaAlpha.find(params[:id])
+      @project = @alpha_alpha.alpha_framework.project
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

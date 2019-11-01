@@ -40,13 +40,15 @@
 
 % bundle exec rails db:seed RAILS_ENV=development
 
-# データベースを検索し、データが投入されているか確認する。
+% bundle exec rails s
+
+# ラーニングアルファのデータベースを検索し、データが投入されているか確認する。
 
 % bundle exec rails console
 
 [1] pry(main)> User.all
 [2] pry(main)> exit
 
-% 
+% bundle exec rails s
 
 

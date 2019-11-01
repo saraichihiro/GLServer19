@@ -50,15 +50,15 @@ Rails.application.routes.draw do
   end
   
   resources :projects, shallow: true do
-    resource :alpha_framework, shallow: true do
-      resources :alpha_alphas, shallow: true, except: [ :destroy ] do
-        resources :alpha_states, shallow: true, except: [ :destroy ] do
-          resources :alpha_items, shallow: true, except: [ :destroy ] do
-            resources :alpha_evidences, shallow: true
+    #resource :alpha_framework, shallow: true do
+      resources :alpha_alphas, shallow: true, except: [ :new, :create, :destroy ] do
+        resources :alpha_states, shallow: true, except: [ :new, :create, :destroy ] do
+          resources :alpha_items, shallow: true, except: [ :new, :create, :destroy ] do
+            resource :alpha_evidences, shallow: true, except: [ :new, :create, :destroy ] 
           end
         end
       end
-    end
+    #end
   end
 
   # You can have the root of your site routed with "root"
