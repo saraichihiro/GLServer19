@@ -1,4 +1,4 @@
-<%= form_for @alpha_evidence, url: edit_alpha_item_alpha_evidences_path do |form| %>
+<%= form_for @alpha_evidence, url: alpha_item_alpha_evidence_path(@alpha_item) do |form| %>
   <% if @alpha_evidence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@alpha_evidence.errors.count, "error") %> prohibited this alpha_evidence from being saved:</h2>
@@ -17,6 +17,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "変更する", class: "btn btn-primary" %>
+    <%= link_to 'キャンセル', alpha_state_alpha_items_path(@alpha_state), class: "btn btn-primary"  %>
   </div>
 <% end %>

@@ -15,7 +15,7 @@ class AlphaEvidencesController < ApplicationController
   def update
     respond_to do |format|
       if @alpha_evidence.update(alpha_evidence_params)
-        format.html { redirect_to @alpha_evidence, notice: 'Alpha evidence was successfully updated.' }
+        format.html { redirect_to alpha_state_alpha_items_url(@alpha_state), notice: 'Alpha evidence was successfully updated.' }
         format.json { render :show, status: :ok, location: @alpha_evidence }
       else
         format.html { render :edit }
@@ -30,7 +30,6 @@ class AlphaEvidencesController < ApplicationController
       @alpha_item = AlphaItem.find(params[:alpha_item_id])
       @alpha_evidence = @alpha_item.alpha_evidence
       @alpha_state = @alpha_item.alpha_state
-      byebug
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,10 +1,8 @@
 <div class="page-header">
-  <%= link_to alpha_state_alpha_items_path(@alpha_state), class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  
-  <h1><%= @alpha_item.ddescription %></h1>
+  <h1>
+  <%= @alpha_state.dname %>: 
+  <%= @alpha_item.ddescription %>
+  </h1>
 </div>
 
 <%= render 'form' %>

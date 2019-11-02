@@ -54,7 +54,7 @@ Rails.application.routes.draw do
       resources :alpha_alphas, shallow: true, except: [ :new, :create, :destroy ] do
         resources :alpha_states, shallow: true, except: [ :new, :create, :destroy ] do
           resources :alpha_items, shallow: true, except: [ :new, :create, :destroy ] do
-            resource :alpha_evidences, shallow: true, except: [ :new, :create, :destroy ] 
+            resource :alpha_evidence, shallow: true, except: [ :new, :create, :destroy ] 
           end
         end
       end
