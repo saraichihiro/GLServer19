@@ -9,12 +9,9 @@ class AlphaFramework < ApplicationRecord
   has_many :alpha_alphas, :dependent => :destroy
 
   def self.build_framework(name, project)
-    framework = AlphaFramework.create
     framework_def = AlphaFrameworkDef.find_by(dname: name)
-    framework.alpha_framework_def = framework_def
-    framework.project = project
-    framework.save
-    
+    framework = project.create_alpha_framework(alpha_framework_def: framework_def)
+
     alpha_defs = framework_def.alpha_alpha_defs
     if alpha_defs then
       alpha_defs.each do |alpha_def|

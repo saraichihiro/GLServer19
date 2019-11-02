@@ -3,9 +3,7 @@ class AlphaEvidence < ApplicationRecord
   belongs_to :alpha_item
 
   def self.build_framework(alpha_item)
-    evidence = AlphaEvidence.create
-    evidence.alpha_item = alpha_item
-    evidence.save
+    evidence = alpha_item.create_alpha_evidence(alpha_item: alpha_item)
 
     return evidence
   end

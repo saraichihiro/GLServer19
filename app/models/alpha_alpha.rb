@@ -5,10 +5,7 @@ class AlphaAlpha < ApplicationRecord
   has_many   :alpha_states
 
   def self.build_framework(framework, alpha_alpha_def)
-    alpha = AlphaAlpha.create
-    alpha.alpha_framework = framework
-    alpha.alpha_alpha_def = alpha_alpha_def
-    alpha.save
+    alpha = framework.alpha_alphas.create(alpha_alpha_def: alpha_alpha_def)
 
     state_defs = alpha_alpha_def.alpha_state_defs
     if state_defs then
