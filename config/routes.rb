@@ -51,10 +51,10 @@ Rails.application.routes.draw do
   
   resources :projects, shallow: true do
     #resource :alpha_framework, shallow: true do
-      resources :alpha_alphas, shallow: true, except: [ :new, :create, :destroy ] do
-        resources :alpha_states, shallow: true, except: [ :new, :create, :destroy ] do
-          resources :alpha_items, shallow: true, except: [ :new, :create, :destroy ] do
-            resource :alpha_evidence, shallow: true, except: [ :new, :create, :destroy ] 
+      resources :alpha_alphas, shallow: true, only: [ :index, :show ] do
+        resources :alpha_states, shallow: true, only: [ :index, :show ] do
+          resources :alpha_items, shallow: true, only: [ :index, :show ] do
+            resource :alpha_evidence, shallow: true, only: [ :show, :edit, :update ] 
           end
         end
       end

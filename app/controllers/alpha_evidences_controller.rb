@@ -1,5 +1,10 @@
 class AlphaEvidencesController < ApplicationController
-  before_action :set_alpha_evidence, only: [:show, :edit, :update]
+  before_action :set_alpha_evidence, only: [:new, :show, :edit, :update]
+
+  # 後日、オンデマンドで AlphaEvidence を生成する機能を追加するかもしれないので残しておく
+  # GET /alpha_evidences/new
+  def new
+  end
 
   # GET /alpha_evidences/1
   # GET /alpha_evidences/1.json
@@ -9,6 +14,22 @@ class AlphaEvidencesController < ApplicationController
   # GET /alpha_evidences/1/edit
   def edit
   end
+
+  # POST /alpha_evidences
+  # POST /alpha_evidences.json
+  def create
+    @alpha_evidence = AlphaEvidence.new(alpha_evidence_params)
+
+    respond_to do |format|
+      if @alpha_evidence.save
+        format.html { redirect_to @alpha_evidence, notice: 'Alpha evidence was successfully created.' }
+        format.json { render :show, status: :created, location: @alpha_evidence }
+      else
+        format.html { render :new }
+        format.json { render json: @alpha_evidence.errors, status: :unprocessable_entity }
+      end
+    end
+  en
 
   # PATCH/PUT /alpha_evidences/1
   # PATCH/PUT /alpha_evidences/1.json
