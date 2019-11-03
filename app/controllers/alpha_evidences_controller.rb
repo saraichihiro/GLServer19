@@ -29,7 +29,7 @@ class AlphaEvidencesController < ApplicationController
         format.json { render json: @alpha_evidence.errors, status: :unprocessable_entity }
       end
     end
-  en
+  end
 
   # PATCH/PUT /alpha_evidences/1
   # PATCH/PUT /alpha_evidences/1.json
