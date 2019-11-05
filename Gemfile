@@ -70,6 +70,8 @@ group :development, :test do
   gem 'sqlite3',	'1.3.13'
   gem 'byebug',		'3.4.0'
   #gem 'spring',		'1.1.3'
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :development, :test do
