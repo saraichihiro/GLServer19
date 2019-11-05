@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Project < ApplicationRecord
-  has_one :alpha_framework
+  has_one :alpha_framework, dependent: :destroy
 
   has_many :sprints
 

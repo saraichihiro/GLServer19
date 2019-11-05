@@ -2,7 +2,7 @@ class AlphaAlpha < ApplicationRecord
   belongs_to :alpha_framework
   belongs_to :alpha_alpha_def
 
-  has_many   :alpha_states
+  has_many   :alpha_states, dependent: :destroy
 
   def self.build_framework(framework, alpha_alpha_def)
     alpha = framework.alpha_alphas.create(alpha_alpha_def: alpha_alpha_def)

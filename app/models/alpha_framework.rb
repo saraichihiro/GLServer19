@@ -6,7 +6,7 @@ class AlphaFramework < ApplicationRecord
   belongs_to :project
   belongs_to :alpha_framework_def
 
-  has_many :alpha_alphas, :dependent => :destroy
+  has_many :alpha_alphas, dependent: :destroy
 
   def self.build_framework(name, project)
     framework_def = AlphaFrameworkDef.find_by(dname: name)
