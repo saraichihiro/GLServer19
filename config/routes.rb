@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get  '/users/:id/editpassword(.:format)'     => 'users#edit_password',  :as => 'edit_password'
 
-  resources :projects
+  # resources :projects
   
   resources :sprints, :only => [:show, :edit, :update, :destroy]
 
@@ -40,6 +40,26 @@ Rails.application.routes.draw do
   get  '/sbl/:id/edit(.:format)'                 => 'backlog_items#edit_sbl',  :as => 'edit_sbl'
 
   post '/projects/:project_id/backlog_items(.:format)'  => 'backlog_items#create', :as => 'project_backlog_items'
+
+  resources :alpha_framework_defs, shallow: true do
+    resources :alpha_alpha_defs, shallow: true do
+      resources :alpha_state_defs, shallow: true do
+        resources :alpha_item_defs, shallow: true
+      end
+    end
+  end
+  
+  resources :projects, shallow: true do
+    #resource :alpha_framework, shallow: true do
+      resources :alpha_alphas, shallow: true, only: [ :index, :show ] do
+        resources :alpha_states, shallow: true, only: [ :index, :show ] do
+          resources :alpha_items, shallow: true, only: [ :index, :show ] do
+            resource :alpha_evidence, shallow: true, only: [ :show, :edit, :update ] 
+          end
+        end
+      end
+    #end
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

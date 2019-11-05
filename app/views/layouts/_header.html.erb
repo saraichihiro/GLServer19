@@ -26,10 +26,10 @@
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><%= current_user.name %></a>
           <div class="dropdown-menu dropdown-menu-right" id="menu-user">
-            
             <%= link_to "プロジェクト一覧",  projects_path, class: "dropdown-item" %>
             <%= link_to "プロフィールの編集",  current_user, class: "dropdown-item" %>
             <%= link_to "ユーザ一覧", users_path, class: "dropdown-item" %>
+            <%= link_to "ラーニングアルファ定義",  alpha_framework_defs_path, class: "dropdown-item" %>
             <%= link_to "設定", "#", class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to "ログアウト", logout_path, class: "dropdown-item", method: "delete", data: { confirm: "本当にログアウトしますか？" } %>

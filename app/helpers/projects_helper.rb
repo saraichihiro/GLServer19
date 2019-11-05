@@ -4,31 +4,40 @@ module ProjectsHelper
     Project.all
   end
 
-  def set_current_project_id(project)
+  def set_current_project(project)
     session[:current_project] = project.id
   end
 
+  def current_project
+    current_project_id = session[:current_project]
+    if current_project_id
+      current_project = Project.find_by(id: current_project_id)
+      if current_project
+        return current_project
+      else
+        session[:current_project] = nil
+      end
+    end
+    return nil
+  end
+
   def get_current_project_id
-    session[:current_project]
+    current_project && current_project.id
   end
 
   def get_project_name
-   @project_name = "プロジェクト一覧"
+    if current_project
+      return current_project.name
+    end
 
-   if session[:current_project] != nil
-    @project_name = Project.find(session[:current_project]).name + " プロジェクト"
-   end
-
-    @project_name
+    "プロジェクト一覧"
   end
 
- # def current_project?(project)
- #   project == @current_project
- # end
+  def current_project?(project)
+    project == current_project
+  end
 
   def clear_current_project
-  if session[:current_project] != nil
     session[:current_project] = nil
   end
-end
 end

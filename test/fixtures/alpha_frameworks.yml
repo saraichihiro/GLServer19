@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  alpha_framework_def: one
+
+two:
+  project: two
+  alpha_framework_def: two

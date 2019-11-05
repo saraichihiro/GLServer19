@@ -6,18 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(name:  "Admin",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
-             admin: true)
+#Pathname.glob(Rails.root.join('db/seeds/*.rb')) do |path|
+#  desc "Load the seed data from db/seeds/#{path.basename}."
+#  task "db:seed:#{path.basename(".*")}" => :environment do
+#    load(path)
+#  end
+#end
 
-5.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password)
-end
+SeedFu.seed

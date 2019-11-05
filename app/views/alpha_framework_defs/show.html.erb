@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to alpha_framework_defs_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_alpha_framework_def_path(@alpha_framework_def), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show alpha_framework_def</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Dname:</dt>
+  <dd><%= @alpha_framework_def.dname %></dd>
+
+  <dt>Ddescription:</dt>
+  <dd><%= @alpha_framework_def.ddescription %></dd>
+
+</dl>

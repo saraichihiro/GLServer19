@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dseq: 1
+  dname: MyString
+  ddescription: MyText
+  alpha_alpha_def: one
+
+two:
+  dseq: 1
+  dname: MyString
+  ddescription: MyText
+  alpha_alpha_def: two
