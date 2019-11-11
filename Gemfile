@@ -41,7 +41,10 @@ gem 'turbolinks',   '~> 5.2'
 gem 'jbuilder',     '2.7.0'
 
 # Web アイコンフォントの使用
+# https://github.com/bokmann/font-awesome-rails
 gem "font-awesome-rails"
+
+# https://github.com/FortAwesome/font-awesome-sass
 gem 'font-awesome-sass'
 
 #gem 'feathericon-sass'
@@ -72,6 +75,10 @@ group :development, :test do
   #gem 'spring',		'1.1.3'
   gem 'ruby-debug-ide'
   gem 'debase'
+  
+  # vscodeでの整形用のgem。エラーとなるためコメント化
+  #gem 'prettier', '~> 0.15.1'
+  #gem 'rufo'
 end
 
 group :development, :test do

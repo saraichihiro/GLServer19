@@ -1,5 +1,14 @@
 <div class="page-header">
-  <h1>アルファのリスト</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= @project.get_framework_dname %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        アルファ
+      </li>
+    </ol>
+  </nav>
 </div>
 
 <div class="table-responsive">
@@ -13,8 +22,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @alpha_alphas) do |alpha_alpha| %>
-        <td><%= alpha_alpha.dseq %></td>
-        <td><%= link_to alpha_alpha.dname,  alpha_alpha_alpha_states_path(alpha_alpha) %></td>
+      <td><%= alpha_alpha.dseq %></td>
+      <td><%= link_to alpha_alpha.dname,  alpha_alpha_alpha_states_path(alpha_alpha) %></td>
       <% end %>
     </tbody>
   </table>

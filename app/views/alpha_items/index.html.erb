@@ -1,11 +1,28 @@
 <div class="page-header">
-  <h1><%= @alpha_state %></h1>
+  <!--<h1><%= @alpha_state.dname %></h1>-->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to @project.get_framework_dname, project_alpha_alphas_path(@project) %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to @alpha_alpha.dname, alpha_alpha_alpha_states_path(@alpha_alpha)  %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= @alpha_state.dname %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        チェックリスト
+      </li>
+    </ol>
+  </nav>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
+        <th></th>
         <th>No.</th>
         <th>内容</th>
         <th>Completed</th>
@@ -16,6 +33,13 @@
 
     <tbody>
       <%= content_tag_for(:tr, @alpha_items) do |alpha_item| %>
+        <td>
+          <% if alpha_item.check_evidence? %>
+            <%= fa_icon("check-square") %>
+          <% else %>
+            <%= fa_icon("square") %>
+          <% end %>
+        </td>
         <td><%= alpha_item.dseq %></td>
         <td><%= alpha_item.ddescription %></td>
         <td><%= alpha_item.completed %></td>

@@ -1,5 +1,18 @@
 <div class="page-header">
-  <h1><%= @alpha_alpha %></h1>
+  <!-- <h1>アルファ &gt; <%= @alpha_alpha.dname %></h1>-->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to @project.get_framework_dname, project_alpha_alphas_path(@project) %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= @alpha_alpha.dname %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        状態
+      </li>
+    </ol>
+  </nav>
 </div>
 
 <div class="table-responsive">

@@ -11,6 +11,9 @@
           <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">プロジェクトの選択</a>
           <div class="dropdown-menu" id="menu-project">
             <%= link_to "すべてのプロジェクト", projects_path, class: "dropdown-item" %>
+            <%= link_to new_project_path, class: 'dropdown-item' do %>
+              <%= fa_icon("plus") %>プロジェクト
+            <% end %>
             <div class="dropdown-divider"></div>
             <% all_project.each do |project| %>
               <%= link_to project.name, project_path(project), class: "dropdown-item" %>
