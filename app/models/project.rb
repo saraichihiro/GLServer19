@@ -28,4 +28,9 @@ class Project < ApplicationRecord
   def build_framework(name)
     self.alpha_framework = AlphaFramework.build_framework(name, self)
   end
+
+  # プロジェクトのフレームワークの名前を取得する
+  def get_framework_dname
+    self.alpha_framework.alpha_framework_def.dname
+  end
 end
