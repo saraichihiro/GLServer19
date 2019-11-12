@@ -12,7 +12,9 @@ class AlphaStatesController < ApplicationController
   # GET /alpha_states/1.json
   def show
     @alpha_state = AlphaState.find(params[:id])
-    @project = @alpha_state.alpha_alpha.project
+    @project = @alpha_state.alpha_alpha.alpha_framework.project
+
+    @alpha_alpha = @alpha_state.alpha_alpha
   end
 
 end

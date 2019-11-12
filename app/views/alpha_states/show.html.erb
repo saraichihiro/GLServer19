@@ -1,15 +1,52 @@
 <div class="page-header">
-  <%= link_to alpha_states_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_alpha_state_path(@alpha_state), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show alpha_state</h1>
+  <!--<h1><%= @alpha_state.dname %></h1>-->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to @project.get_framework_dname, project_alpha_alphas_path(@project) %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to @alpha_alpha.dname, alpha_alpha_alpha_states_path(@alpha_alpha)  %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= @alpha_state.dname %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        チェックリスト
+      </li>
+    </ol>
+  </nav>
 </div>
 
+<div class="row pl-2">
+  <% @alpha_alpha.alpha_states.each do |alpha_state| %>
+    <div class="col-2">
+      <%= link_to alpha_state.dname, alpha_state_path(alpha_state), class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row pt-3">
+    <div class="col">
+      <h3>チェックリスト</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <% @alpha_state.alpha_items.each do |state_item| %>
+            <tr>
+              <th><%= state_item.ddescription  %></th>
+            </tr>
+          <% end %>
+        </thead>
+      </table>
+    </div>
+</div>
+
+<!--
 <dl class="dl-horizontal">
   <dt>Completed:</dt>
   <dd><%= @alpha_state.completed %></dd>
@@ -21,9 +58,10 @@
   <dd><%= @alpha_state.completed_at %></dd>
 
   <dt>Alpha alpha:</dt>
-  <dd><%= @alpha_state.alpha_alpha %></dd>
+  <dd><%= @alpha_state.alpha_alpha.dname %></dd>
 
   <dt>Alpha state def:</dt>
-  <dd><%= @alpha_state.alpha_state_def %></dd>
+  <dd><%= @alpha_state.alpha_state_def.dname %></dd>
 
 </dl>
+-->
