@@ -16,3 +16,15 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+    $('.event-spin').click(function(){
+        if($(this).children("i").hasClass("lotate-anime-before")){
+            $(this).children("i").removeClass("lotate-anime-before");
+            $(this).children("i").addClass("lotate-anime-after");
+        }else{
+            $(this).children("i").removeClass("lotate-anime-after");
+            $(this).children("i").addClass("lotate-anime-before");
+        }
+    });
+});

@@ -121,3 +121,17 @@
   font-size: .75rem;
   text-transform: uppercase;
 }
+
+.lotate-anime-after{
+  transform: rotateZ(180deg);
+  transition: 0.3s;
+}
+
+.lotate-anime-before{
+  transform: rotateZ(0deg);
+  transition: 0.3s;
+}
+
+.event-spin{
+  /*疑似クラス*/
+}

@@ -1,0 +1,32 @@
+<div class="page-header">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%= @project.get_framework_dname %>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        アルファ
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>アルファ</th>
+        <th align="center" colspan="5">状態</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @alpha_alphas) do |alpha_alpha| %>
+        <td><%= link_to alpha_alpha.dname,  alpha_alpha_alpha_states_path(alpha_alpha) %></td>
+        <%= content_tag_for(:td, alpha_alpha.alpha_states) do |alpha_state| %>
+            <%= link_to alpha_state.dname,  alpha_state_alpha_items_path(alpha_state) %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

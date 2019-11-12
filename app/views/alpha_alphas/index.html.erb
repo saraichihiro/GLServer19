@@ -11,22 +11,47 @@
   </nav>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th>アルファ</th>
-        <th align="center" colspan="5">状態</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <%= content_tag_for(:tr, @alpha_alphas) do |alpha_alpha| %>
-        <td><%= link_to alpha_alpha.dname,  alpha_alpha_alpha_states_path(alpha_alpha) %></td>
-        <%= content_tag_for(:td, alpha_alpha.alpha_states) do |alpha_state| %>
-            <%= link_to alpha_state.dname,  alpha_state_alpha_items_path(alpha_state) %>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row px-5">
+  <div class="col-md-2 border-right border-dark"><div class="text-center"><h3>STEP1 <%= fa_icon("arrow-circle-right") %></h3></div></div>
+  <div class="col-md-2 border-right border-dark"><div class="text-center"><h3>STEP2 <%= fa_icon("arrow-circle-right") %></h3></div></div>
+  <div class="col-md-2 border-right border-dark"><div class="text-center"><h3>STEP3 <%= fa_icon("arrow-circle-right") %></h3></div></div>
+  <div class="col-md-2 border-right border-dark"><div class="text-center"><h3>STEP4 <%= fa_icon("arrow-circle-right") %></h3></div></div>
+  <div class="col-md-2"><div class="text-center"><h3>STEP5 <%= fa_icon("flag-checkered") %></h3></div></div>
 </div>
+
+<%= content_tag_for(:tr, @alpha_alphas) do |alpha_alpha| %>
+  <div class="row px-5 py-1">
+    <%= content_tag_for(:td, alpha_alpha.alpha_states) do |alpha_state| %>
+      <div class="col-md-2 border-right border-dark">
+        <div class="card text-center border-dark shadow rounded">
+          <div class="card-header border-dark">
+            <%= alpha_alpha.dname %>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <%= link_to alpha_state.dname,  alpha_state_alpha_items_path(alpha_state), class: 'btn btn-primary btn-block' %>
+            </p>
+            <a class="btn btn-info btn-block p-2 event-spin" data-toggle="collapse" href="#<%= alpha_state.dname %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+              進捗状況を見る <i class="fa fa-angle-double-down lotate-anime-before"></i>
+            </a>
+            <ul class="list-group list-group-flush collapse" id="<%= alpha_state.dname %>">
+              <li class="list-group-item">
+                進捗状況
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated pg-primary " role="progressbar" style="width: 100%;">
+                    n%
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+              最終更新日:
+              <%= alpha_state.created_at.strftime("%Y/%m/%d") %> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>      
+    <% end %>
+  </div>
+<% end %>
