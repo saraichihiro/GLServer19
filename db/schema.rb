@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191029061214) do
+ActiveRecord::Schema.define(version: 20191112062153) do
 
   create_table "alpha_alpha_defs", force: :cascade do |t|
     t.integer "dseq"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20191029061214) do
     t.integer "alpha_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed", default: false
+    t.datetime "completed_at"
     t.index ["alpha_item_id"], name: "index_alpha_evidences_on_alpha_item_id"
   end
 

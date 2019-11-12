@@ -5,13 +5,13 @@
   <ul class="nav ml-auto">
     <li class="nav-item">
       <%= link_to edit_project_path(@project),  class: 'nav-link' do %>
-        <%= fa_icon("edit") %>
+        <%= icon("fas","edit") %>
         編集
       <% end %>
     </li>
     <li class="nav-item">
       <%= link_to  @project, :method => :delete, data: { confirm: '本当に削除しますか?' }, class: 'nav-link' do %>
-      <%= fa_icon("trash") %>
+      <%= icon("fas","trash") %>
       削除
       <% end %>
     </li>
