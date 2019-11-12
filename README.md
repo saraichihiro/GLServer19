@@ -130,7 +130,7 @@ https://fontawesome.com/icons?d=gallery&m=free
 例えば、plus アイコンを使用する場合は次のように記述する。
 
 ```erb
-<%= fa_icon("plus") %>
+<%= icon("fas","plus") %>
 ```
 
 ### 4) record_tag_helper

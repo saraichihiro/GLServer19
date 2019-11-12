@@ -12,7 +12,7 @@
           <div class="dropdown-menu" id="menu-project">
             <%= link_to "すべてのプロジェクト", projects_path, class: "dropdown-item" %>
             <%= link_to new_project_path, class: 'dropdown-item' do %>
-              <%= fa_icon("plus") %>プロジェクト
+              <%= icon("fas", "plus") %>プロジェクト
             <% end %>
             <div class="dropdown-divider"></div>
             <% all_project.each do |project| %>
