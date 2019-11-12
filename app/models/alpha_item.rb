@@ -24,12 +24,12 @@ class AlphaItem < ApplicationRecord
     self.alpha_item_def.ddescription
   end
 
-  def check_evidence?
-    document = get_document()
-    if document && document.length > 0
-      return true
-    end
-    false
+  def completed?
+    self.alpha_evidence.completed
+  end
+
+  def completed_at
+    completed? && self.alpha_evidence.completed_at
   end
 
   def get_document

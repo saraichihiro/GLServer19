@@ -42,7 +42,8 @@ gem 'jbuilder',     '2.7.0'
 
 # Web アイコンフォントの使用
 # https://github.com/bokmann/font-awesome-rails
-gem "font-awesome-rails"
+# font-awesomeの最新版に対応していないため、使用しない
+#gem "font-awesome-rails"
 
 # https://github.com/FortAwesome/font-awesome-sass
 gem 'font-awesome-sass'
