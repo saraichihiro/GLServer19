@@ -84,8 +84,6 @@ GEM
     faker (1.4.2)
       i18n (~> 0.5)
     ffi (1.11.1-x64-mingw32)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     font-awesome-sass (5.11.2)
       sassc (>= 1.11)
     formatador (0.2.5)
@@ -141,7 +139,6 @@ GEM
       shellany (~> 0.0)
     pg (0.17.1-x64-mingw32)
     popper_js (1.14.5)
-    prettier (0.15.1)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -191,7 +188,6 @@ GEM
     ruby-debug-ide (0.7.0)
       rake (>= 0.8.1)
     ruby-progressbar (1.10.1)
-    rufo (0.7.0)
     sassc (2.2.1-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -255,21 +251,18 @@ DEPENDENCIES
   coffee-script-source (= 1.8.0)
   debase
   faker (= 1.4.2)
-  font-awesome-rails
   font-awesome-sass
   guard-minitest (= 2.3.1)
   jbuilder (= 2.7.0)
   jquery-rails
   minitest-reporters (= 1.0.5)
   pg (= 0.17.1)
-  prettier (~> 0.15.1)
   pry-rails
   rails (~> 5.1.6)
   rails-i18n (~> 5.1)
   rails_12factor (= 0.0.2)
   record_tag_helper (~> 1.0)
   ruby-debug-ide
-  rufo
   sdoc (= 0.4.0)
   seed-fu (~> 2.3)
   simplecov

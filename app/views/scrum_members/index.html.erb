@@ -5,7 +5,7 @@
   <ul class="nav ml-auto">
     <li class="nav-item">
       <%= link_to new_project_scrum_members_path(@project), class: 'nav-link' do %>
-        <%= fa_icon("plus") %>
+        <%= icon("fas","plus") %>
         メンバーの追加
       <% end %>
     </li>
@@ -33,12 +33,12 @@
         <td><%= scrum_member.description %></td>
         <td>
           <%= link_to edit_scrum_member_path(scrum_member) do %>
-            <%= fa_icon("edit") %>
+            <%= icon("fas","edit") %>
           <% end %>
         </td>
         <td>
           <%= link_to scrum_member, method: :delete, data: { confirm: 'メンバーを退会させますか？' } do %>
-            <%= fa_icon("trash") %>
+            <%= icon("fas","trash") %>
           <% end %>
         </td>
       <% end %>

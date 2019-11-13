@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :document %>
+    <%= form.label "根拠" %>
     <%= form.text_area :document, id: :alpha_evidence_document %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :completed, id: :alpha_evidence_completed %>
+    <%= form.label "完了" %>
   </div>
 
   <div class="actions">
