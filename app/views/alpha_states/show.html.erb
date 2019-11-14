@@ -6,10 +6,7 @@
         <%= link_to @project.get_framework_dname, project_alpha_alphas_path(@project) %>
       </li>
       <li class="breadcrumb-item active" aria-current="page">
-        <%= link_to @alpha_alpha.dname, alpha_alpha_alpha_states_path(@alpha_alpha)  %>
-      </li>
-      <li class="breadcrumb-item active" aria-current="page">
-        <%= @alpha_state.dname %>
+        <%= @alpha_alpha.dname %>
       </li>
       <li class="breadcrumb-item active" aria-current="page">
         チェックリスト
@@ -18,35 +15,66 @@
   </nav>
 </div>
 
+<!-- 状態のボタン -->
 <div class="row pl-2">
-  <% @alpha_alpha.alpha_states.each do |alpha_state| %>
+  <% @alpha_alpha.alpha_states.each_with_index do |alpha_state, index| %>
     <div class="col-2">
-      <%= link_to alpha_state.dname, alpha_state_path(alpha_state), class: 'btn btn-primary btn-block' %>
+      <% if index+1 == params[:id].to_i %>
+        <%= link_to alpha_state.dname, alpha_state_path(alpha_state), class: 'btn btn-primary btn-block' %>
+      <% else %>
+        <%= link_to alpha_state.dname, alpha_state_path(alpha_state), class: 'btn btn-outline-primary btn-block' %>
+      <% end %>
     </div>
   <% end %>
 </div>
 
-<div class="row pt-3">
-    <div class="col">
-      <h3>チェックリスト</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-6">
-      <table class="table">
-        <thead>
-          <% @alpha_state.alpha_items.each do |state_item| %>
-            <tr>
-              <th><%= state_item.ddescription  %></th>
-            </tr>
-          <% end %>
-        </thead>
-      </table>
-    </div>
-</div>
-
+<!-- table -->
 <!--
+<div class="row pt-3">
+  <div class="col-10">
+    <ul class="list-group">
+      <% @alpha_state.alpha_items.each do |state_item| %>
+        <li class="list-group-item list-group-item-action">
+          <span class="col"><%= icon("far","square") %></span>
+          <span class="col"><%= state_item.ddescription %></span>
+          <span class="col text-right"><%= link_to "根拠を書く", edit_alpha_item_alpha_evidence_path(state_item), class:'btn btn-primary' %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+-->
+
+<div class="row pt-3">
+  <div class="col-10">
+    <table style="table-layout:fixed;" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th style="width:1px;"></th>
+          <th style="width:300px;" class="text-center">説明</th>
+          <th style="width:50px;" class="text-center">完了日時</th>
+          <th style="width:50px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @alpha_state.alpha_items.each do |state_item| %>
+          <tr style="height:75px;">
+            <% if state_item.alpha_evidence.completed %>
+              <td class="px-4 pt-4"><%= icon("far fa-lg","check-square") %></td>
+            <% else %>
+              <td class="px-4 pt-4"><%= icon("far fa-lg","square") %></td>
+            <% end %>
+            <td><%= state_item.ddescription %></td>
+            <td class="text-center"><%= print_date(state_item.completed_at) %></td>
+            <td><%= link_to "根拠を書く", edit_alpha_item_alpha_evidence_path(state_item), class:'my-2 btn btn-primary btn-block btn-sm' %></td>
+          <tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--元view
 <dl class="dl-horizontal">
   <dt>Completed:</dt>
   <dd><%= @alpha_state.completed %></dd>
