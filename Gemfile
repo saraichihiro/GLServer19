@@ -69,8 +69,8 @@ gem 'seed-fu', '~> 2.3'
 # エラーなどを日本語で表示する
 gem 'rails-i18n', '~> 5.1'
 
-gem 'actiontext'
-gem 'image_processing', '~> 1.2'
+#gem 'actiontext'
+#gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem 'pry-rails'
