@@ -14,7 +14,9 @@
             <%= link_to new_project_path, class: 'dropdown-item' do %>
               <%= icon("fas", "plus") %>プロジェクト
             <% end %>
-            <div class="dropdown-divider"></div>
+            <% if Project.exists? %>
+              <div class="dropdown-divider"></div>
+            <% end %>
             <% all_project.each do |project| %>
               <%= link_to project.name, project_path(project), class: "dropdown-item" %>
             <% end %>
