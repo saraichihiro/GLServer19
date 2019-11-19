@@ -25,6 +25,7 @@
         <td><%= link_to alpha_alpha.dname,  alpha_alpha_alpha_states_path(alpha_alpha) %></td>
         <%= content_tag_for(:td, alpha_alpha.alpha_states) do |alpha_state| %>
             <%= link_to alpha_state.dname,  alpha_state_alpha_items_path(alpha_state) %>
+            (<%= alpha_state.completed_items %>/<%= alpha_state.alpha_items.size %>)
         <% end %>
       <% end %>
     </tbody>
