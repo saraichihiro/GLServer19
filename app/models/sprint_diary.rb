@@ -1,0 +1,2 @@
+class SprintDiary < ApplicationRecord
+end
